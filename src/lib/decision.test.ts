@@ -150,3 +150,20 @@ describe("C10 guide", () => {
     expect(recommendCriterion({ ...base, attitude: "conservative" }).criterion).toBe("maximin");
   });
 });
+
+describe("probability total tolerance (±0.001)", () => {
+  const withProbs = (p: string[]) => {
+    const s = buildExample("outdoor");
+    s.probMode = "decimal";
+    s.states.forEach((st, j) => (st.prob = p[j]));
+    return analyzeScenario(s);
+  };
+  it("accepts a total of 0.9992 (within 0.001)", () => {
+    expect(withProbs(["0.3", "0.4", "0.2992"]).probsValid).toBe(true);
+  });
+  it("rejects a total of 0.998 (outside 0.001)", () => {
+    const a = withProbs(["0.3", "0.4", "0.298"]);
+    expect(a.probsValid).toBe(false);
+    expect(a.results.emv).toBeUndefined();
+  });
+});

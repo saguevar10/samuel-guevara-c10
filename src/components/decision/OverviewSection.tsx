@@ -118,7 +118,7 @@ export function OverviewSection({
                 <li>Payoffs are profits; negative numbers are losses. Blank or non-numeric cells block every calculation — they are never treated as zero.</li>
                 <li>Ties are detected with a tiny numerical tolerance (relative 10⁻⁹) and all tied alternatives are listed. Nothing is broken at random.</li>
                 <li>Regret (opportunity loss) = best payoff in that state − the alternative's payoff.</li>
-                <li>EMV = Σ payoff × probability. It only runs when every probability is in [0, 1] and they total 100% (± 0.05 points).</li>
+                <li>EMV = Σ payoff × probability. It only runs when every probability is in [0, 1] and they total 1 (100%) within a tolerance of ±0.001.</li>
                 <li>Your scenario is saved in this browser automatically. “Reset” restores the selected example.</li>
               </ul>
             </AccordionContent>
