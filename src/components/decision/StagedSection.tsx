@@ -267,7 +267,9 @@ function StageDetails({
         <p className="mt-1 text-sm text-muted-foreground">
           {result.final.length > 1
             ? `${result.final.length} alternatives remain tied after all stages. The filter does not pick between them — use judgement or another criterion.`
-            : "This is the only alternative that survived every stage."}
+            : result.complete
+              ? "This is the only alternative that survived every stage."
+              : "This is the only alternative left, but at least one stage could not run — treat it as provisional."}
         </p>
       </div>
     </div>

@@ -218,7 +218,7 @@ function Body({
         <p className="mt-1 text-sm text-muted-foreground">Each line is exact: EMV changes in a straight line as one probability moves.</p>
         <div className="mt-4 h-72 w-full" role="img" aria-label={`Line chart of EMV for each alternative as the probability of ${stateName} varies`}>
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={chartData} margin={{ top: 8, right: 16, bottom: 8, left: 0 }}>
+            <LineChart data={chartData} margin={{ top: 20, right: 16, bottom: 8, left: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
               <XAxis dataKey="p" unit="%" tick={{ fontSize: 12, fill: "var(--muted-foreground)" }} />
               <YAxis tick={{ fontSize: 12, fill: "var(--muted-foreground)" }} width={48} />
@@ -228,7 +228,7 @@ function Body({
                 contentStyle={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: 8, fontSize: 12 }}
               />
               <Legend wrapperStyle={{ fontSize: 12 }} />
-              <ReferenceLine x={Math.round(p * 100)} stroke="var(--foreground)" strokeDasharray="4 4" label={{ value: "now", fontSize: 11, fill: "var(--foreground)" }} />
+              <ReferenceLine x={Math.round(p * 100)} stroke="var(--foreground)" strokeDasharray="4 4" label={{ value: "now", position: "top", fontSize: 11, fill: "var(--foreground)" }} />
               {lines.map((_, i) => (
                 <Line key={i} type="linear" dataKey={`a${i}`} name={names[i]} stroke={lineColor(i)} strokeWidth={2.5} dot={false} isAnimationActive={false} />
               ))}

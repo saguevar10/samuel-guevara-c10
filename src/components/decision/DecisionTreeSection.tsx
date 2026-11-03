@@ -115,7 +115,7 @@ function Tree({ m, probs, analysis, unit }: { m: number[][]; probs: number[] | n
             })}
             <rect x={DX - 13} y={dY - 13} width={26} height={26} className="fill-primary" />
             {best && (
-              <text x={DX - 13} y={dY - 22} className="fill-primary text-[12px] font-semibold num">
+              <text x={DX - 13} y={dY + 32} className="fill-primary text-[12px] font-semibold num">
                 Best EV {formatValue(best.best, unit)}
               </text>
             )}

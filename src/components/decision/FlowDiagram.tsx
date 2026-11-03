@@ -63,7 +63,11 @@ export function FlowDiagram({ result, names, unit }: { result: StagedResult; nam
                 ) : (
                   <>
                     <p className="mt-1 text-xs text-muted-foreground">
-                      {s.allTied ? "All tied — all retained" : `Retained ${s.retained.length} of ${s.candidates.length}`}
+                      {s.candidates.length === 1
+                        ? "One candidate — confirmed"
+                        : s.allTied
+                          ? "All tied — all retained"
+                          : `Retained ${s.retained.length} of ${s.candidates.length}`}
                     </p>
                     <span className="mt-1.5 flex flex-wrap gap-1">
                       {s.retained.map((i) => (
