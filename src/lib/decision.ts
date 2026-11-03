@@ -6,8 +6,8 @@
 
 /** Relative tolerance used to detect ties between computed scores. */
 export const EPS = 1e-9;
-/** Probabilities must total 1 within this tolerance (0.05 percentage points). */
-export const PROB_TOLERANCE = 0.0005;
+/** Probabilities must total 1 within this tolerance (±0.001, i.e. ±0.1 percentage points). */
+export const PROB_TOLERANCE = 0.001;
 export const MIN_ALTERNATIVES = 2;
 export const MIN_STATES = 2;
 
