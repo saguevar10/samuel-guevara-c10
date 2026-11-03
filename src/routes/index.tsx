@@ -1,24 +1,62 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useMemo } from "react";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { useScenario } from "@/hooks/use-scenario";
+import { analyzeScenario } from "@/lib/decision";
+import { SiteHeader } from "@/components/decision/SiteHeader";
+import { OverviewSection } from "@/components/decision/OverviewSection";
+import { PayoffSection } from "@/components/decision/PayoffSection";
+import { CriteriaSection } from "@/components/decision/CriteriaSection";
+import { StagedSection } from "@/components/decision/StagedSection";
+import { SensitivitySection } from "@/components/decision/SensitivitySection";
+import { DecisionTreeSection } from "@/components/decision/DecisionTreeSection";
+import { GuideSection } from "@/components/decision/GuideSection";
+import { SiteFooter } from "@/components/decision/SiteFooter";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Decision Lab — Decisions Under Uncertainty" },
+      {
+        name: "description",
+        content:
+          "Interactive payoff tables, Maximax, Maximin, Minimax Regret and EMV, staged filtering, sensitivity analysis and decision trees for students.",
+      },
+      { property: "og:title", content: "Decision Lab — Decisions Under Uncertainty" },
+      {
+        property: "og:description",
+        content: "Compare decision criteria, filter alternatives in stages and test probability assumptions.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const { scenario, staged, exampleId, actions } = useScenario();
+  const analysis = useMemo(() => analyzeScenario(scenario), [scenario]);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <TooltipProvider delayDuration={150}>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+      >
+        Skip to content
+      </a>
+      <SiteHeader exampleId={exampleId} onLoadExample={actions.loadExample} onReset={() => actions.loadExample(exampleId)} />
+      <main id="main" className="mx-auto max-w-6xl px-4 md:px-6">
+        <OverviewSection scenario={scenario} analysis={analysis} actions={actions} />
+        <PayoffSection scenario={scenario} analysis={analysis} actions={actions} />
+        <CriteriaSection scenario={scenario} analysis={analysis} />
+        <StagedSection scenario={scenario} analysis={analysis} config={staged} setConfig={actions.setStaged} />
+        <SensitivitySection scenario={scenario} analysis={analysis} actions={actions} />
+        <DecisionTreeSection scenario={scenario} analysis={analysis} />
+        <GuideSection scenario={scenario} analysis={analysis} />
+      </main>
+      <SiteFooter />
+    </TooltipProvider>
   );
 }
