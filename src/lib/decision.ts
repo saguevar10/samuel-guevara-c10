@@ -369,7 +369,7 @@ export interface StageResult {
   eliminated: { alt: number; score: number; gap: number }[];
   allTied: boolean;
   /** For regret stages: best payoff per state among the candidates only. */
-  regretBasis?: number[];
+  regretBasis?: number[] | undefined;
 }
 
 export interface StagedResult {
