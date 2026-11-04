@@ -66,7 +66,7 @@ function Tree({ m, probs, analysis, unit }: { m: number[][]; probs: number[] | n
             role="img"
             aria-labelledby="tree-title tree-desc"
           >
-            <title id="tree-title">Decision tree for {analysis.altNames.length} alternatives</title>
+            <title id="tree-title">{`Decision tree for ${analysis.altNames.length} alternatives`}</title>
             <desc id="tree-desc">
               {evs
                 ? analysis.altNames.map((n, i) => `${n}: expected value ${formatValue(evs[i], unit)}`).join(". ") +
