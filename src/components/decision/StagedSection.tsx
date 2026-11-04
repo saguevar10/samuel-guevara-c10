@@ -262,7 +262,7 @@ function StageDetails({
         );
       })}
       <div className="rounded-2xl border-2 border-primary bg-card p-5">
-        <p className="text-xs font-semibold uppercase tracking-wide text-teal">{result.complete ? "Final outcome" : "Provisional outcome"}</p>
+        <p className="text-xs font-semibold uppercase tracking-wide text-violet">{result.complete ? "Final outcome" : "Provisional outcome"}</p>
         <p className="font-display mt-1 text-2xl font-semibold">{listNames(result.final, names)}</p>
         <p className="mt-1 text-sm text-muted-foreground">
           {result.final.length > 1

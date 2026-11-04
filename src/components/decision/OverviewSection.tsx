@@ -20,9 +20,9 @@ export function OverviewSection({
   return (
     <section id="overview" aria-labelledby="overview-title" className="scroll-mt-32 pt-8 md:pt-12">
       <div className="bg-hero rounded-3xl border bg-paper p-6 md:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Overview · Individual decision analysis</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet">Overview · Individual decision analysis</p>
         <h1 id="overview-title" className="font-display mt-3 max-w-3xl text-4xl font-semibold leading-[1.05] md:text-6xl">
-          Decisions Under Uncertainty
+          Decisions Under <span className="text-brand">Uncertainty</span>
         </h1>
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           Build a payoff table, compare four decision criteria, filter alternatives in stages and test how your

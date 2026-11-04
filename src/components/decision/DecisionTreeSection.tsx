@@ -55,7 +55,7 @@ function Tree({ m, probs, analysis, unit }: { m: number[][]; probs: number[] | n
       <Panel className="p-0 md:p-0">
         <div className="flex flex-wrap gap-4 border-b p-4 text-xs text-muted-foreground">
           <span className="flex items-center gap-1.5"><svg width="14" height="14" aria-hidden><rect x="1" y="1" width="12" height="12" className="fill-primary" /></svg> Decision node (you choose)</span>
-          <span className="flex items-center gap-1.5"><svg width="14" height="14" aria-hidden><circle cx="7" cy="7" r="6" className="fill-teal" /></svg> Chance node (nature decides)</span>
+          <span className="flex items-center gap-1.5"><svg width="14" height="14" aria-hidden><circle cx="7" cy="7" r="6" className="fill-violet" /></svg> Chance node (nature decides)</span>
           <span className="flex items-center gap-1.5"><svg width="14" height="14" aria-hidden><path d="M1 7 L13 1 L13 13 Z" className="fill-foreground/60" /></svg> Payoff outcome</span>
           <span className="flex items-center gap-1.5"><svg width="18" height="14" aria-hidden><line x1="5" y1="12" x2="9" y2="2" className="stroke-foreground" strokeWidth="1.5" /><line x1="10" y1="12" x2="14" y2="2" className="stroke-foreground" strokeWidth="1.5" /></svg> Pruned (not chosen)</span>
         </div>
@@ -66,7 +66,7 @@ function Tree({ m, probs, analysis, unit }: { m: number[][]; probs: number[] | n
             role="img"
             aria-labelledby="tree-title tree-desc"
           >
-            <title id="tree-title">Decision tree for {analysis.altNames.length} alternatives</title>
+            <title id="tree-title">{`Decision tree for ${analysis.altNames.length} alternatives`}</title>
             <desc id="tree-desc">
               {evs
                 ? analysis.altNames.map((n, i) => `${n}: expected value ${formatValue(evs[i], unit)}`).join(". ") +
@@ -88,7 +88,7 @@ function Tree({ m, probs, analysis, unit }: { m: number[][]; probs: number[] | n
                     </g>
                   )}
                   <text x={138} y={cy - 8} className="fill-foreground text-[13px] font-semibold">{trunc(analysis.altNames[i], 22)}</text>
-                  <circle cx={CX} cy={cy} r={13} className={chosen ? "fill-teal" : "fill-teal/60"} />
+                  <circle cx={CX} cy={cy} r={13} className={chosen ? "fill-violet" : "fill-violet/60"} />
                   {evs && (
                     <text x={CX - 18} y={cy + 20} textAnchor="end" className="fill-foreground text-[12px] font-semibold num">
                       EV {formatValue(evs[i], unit)}
