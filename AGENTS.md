@@ -15,3 +15,4 @@
 - Payoff and probability inputs are stored as raw strings and parsed on read — invalid entries stay visible and are never silently treated as zero.
 - `noUncheckedIndexedAccess` is disabled in tsconfig — matrix code indexes by bounds-derived indices throughout.
 - The footer "AI development conversation" href is the single constant in `src/lib/config.ts` — replace it there with the real share URL.
+- GitHub Pages is a separate static export enabled only by `GITHUB_PAGES=true` in `vite.config.ts` (base = repo sub-path, `/` prerendered, `nitro: false`), built by `.github/workflows/deploy.yml` — keeps Lovable's normal build untouched; any root-relative URL must use `import.meta.env.BASE_URL`.
