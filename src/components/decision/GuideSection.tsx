@@ -107,7 +107,7 @@ export function GuideSection({ scenario, analysis }: { scenario: Scenario; analy
         </Panel>
 
         <Panel className={cn("border-t-4", CRIT_STYLES[rec.criterion].border)}>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Recommended criterion</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet">Recommended criterion</p>
           <h3 className={cn("font-display mt-1 text-3xl font-semibold", CRIT_STYLES[rec.criterion].text)}>{CRITERIA[rec.criterion].name}</h3>
           {r ? (
             <p className="mt-2">

@@ -1,5 +1,5 @@
 /**
- * Decision Lab — pure, deterministic calculation engine.
+ * Samuel Guevara-C10 — pure, deterministic calculation engine.
  * Every number shown in the UI is derived from these functions and the
  * current scenario state. No hidden constants, no randomness.
  */

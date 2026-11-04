@@ -78,9 +78,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Decision Lab — Decisions Under Uncertainty" },
+      { title: "Samuel Guevara-C10 — Decisions Under Uncertainty" },
       { name: "description", content: "An interactive decision-analysis lab for economics and business students." },
-      { property: "og:title", content: "Decision Lab — Decisions Under Uncertainty" },
+      { property: "og:title", content: "Samuel Guevara-C10 — Decisions Under Uncertainty" },
       { property: "og:description", content: "An interactive decision-analysis lab for economics and business students." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -199,7 +199,7 @@ function Body({
                     <span className="num">{formatValue(e, unit)}</span>
                   </div>
                   <div className="mt-1 h-2.5 rounded-full bg-muted" aria-hidden>
-                    <div className={cn("h-full rounded-full", e < 0 ? "bg-destructive" : win ? "bg-teal" : "bg-primary/40")} style={{ width: `${Math.max(w, 1)}%` }} />
+                    <div className={cn("h-full rounded-full", e < 0 ? "bg-destructive" : win ? "bg-violet" : "bg-primary/40")} style={{ width: `${Math.max(w, 1)}%` }} />
                   </div>
                 </li>
               );

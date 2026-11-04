@@ -20,7 +20,7 @@ export function Section({
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-32 py-10 md:py-14">
       <header className="mb-6 max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">{eyebrow}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet">{eyebrow}</p>
         <h2 id={`${id}-title`} className="font-display mt-2 text-3xl font-semibold md:text-4xl">
           {title}
         </h2>
@@ -86,7 +86,7 @@ export function Notice({
   const styles = {
     warning: "border-warning/60 bg-warning/15",
     error: "border-destructive/40 bg-destructive/5",
-    info: "border-teal/30 bg-accent/60",
+    info: "border-violet/30 bg-accent/60",
   }[tone];
   return (
     <div role={tone === "error" ? "alert" : "status"} className={cn("rounded-xl border p-4 text-sm", styles)}>
@@ -99,7 +99,7 @@ export function Notice({
 export function AltChip({ name, tone = "neutral" }: { name: string; tone?: "neutral" | "kept" | "out" | "win" }) {
   const styles = {
     neutral: "border-border bg-secondary text-secondary-foreground",
-    kept: "border-teal/40 bg-accent text-accent-foreground",
+    kept: "border-violet/40 bg-accent text-accent-foreground",
     out: "border-destructive/30 bg-destructive/5 text-destructive line-through decoration-1",
     win: "border-primary bg-primary text-primary-foreground",
   }[tone];

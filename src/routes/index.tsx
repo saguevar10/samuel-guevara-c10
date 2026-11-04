@@ -16,13 +16,13 @@ import { SiteFooter } from "@/components/decision/SiteFooter";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Decision Lab — Decisions Under Uncertainty" },
+      { title: "Samuel Guevara-C10 — Decisions Under Uncertainty" },
       {
         name: "description",
         content:
           "Interactive payoff tables, Maximax, Maximin, Minimax Regret and EMV, staged filtering, sensitivity analysis and decision trees for students.",
       },
-      { property: "og:title", content: "Decision Lab — Decisions Under Uncertainty" },
+      { property: "og:title", content: "Samuel Guevara-C10 — Decisions Under Uncertainty" },
       {
         property: "og:description",
         content: "Compare decision criteria, filter alternatives in stages and test probability assumptions.",

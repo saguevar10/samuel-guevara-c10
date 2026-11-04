@@ -20,7 +20,7 @@ export function OverviewSection({
   return (
     <section id="overview" aria-labelledby="overview-title" className="scroll-mt-32 pt-8 md:pt-12">
       <div className="bg-hero rounded-3xl border bg-paper p-6 md:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal">Overview · Individual decision analysis</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet">Overview · Individual decision analysis</p>
         <h1 id="overview-title" className="font-display mt-3 max-w-3xl text-4xl font-semibold leading-[1.05] md:text-6xl">
           Decisions Under Uncertainty
         </h1>
