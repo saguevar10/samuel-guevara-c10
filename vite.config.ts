@@ -14,8 +14,8 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
  *  - "/" is prerendered to static HTML; all calculations run in the browser
  *  - no server bundle (nitro disabled)
  */
-const isGithubPages = process.env.GITHUB_PAGES === "true";
-const pagesBase = process.env.PAGES_BASE_PATH || "/samuel-guevara-c10/";
+const isGithubPages = process.env["GITHUB_PAGES"] === "true";
+const pagesBase = process.env["PAGES_BASE_PATH"] || "/samuel-guevara-c10/";
 
 export default defineConfig(
   isGithubPages
