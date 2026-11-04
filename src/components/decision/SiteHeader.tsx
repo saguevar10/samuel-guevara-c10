@@ -46,8 +46,11 @@ export function SiteHeader({
   return (
     <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 md:px-6">
-        <a href="#overview" className="group flex items-baseline gap-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-          <span className="font-display text-xl font-semibold">Samuel Guevara-C10</span>
+        <a href="#overview" className="group flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          <span aria-hidden className="bg-brand font-display grid size-9 place-items-center rounded-lg text-sm font-bold text-primary-foreground shadow-card">
+            SG
+          </span>
+          <span className="font-display text-lg font-semibold md:text-xl">Samuel Guevara-C10</span>
           <span className="hidden text-sm text-muted-foreground sm:inline">Decisions Under Uncertainty</span>
         </a>
         <div className="flex items-center gap-2">
