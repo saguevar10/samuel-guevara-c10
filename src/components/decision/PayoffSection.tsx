@@ -51,7 +51,7 @@ export function PayoffSection({
             </caption>
             <thead>
               <tr className="border-b bg-muted/60 align-top">
-                <th scope="col" className="sticky left-0 z-10 w-52 bg-muted p-3 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                <th scope="col" className="sticky left-0 z-10 w-52 min-w-52 bg-muted p-3 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                   Alternative ↓ / State →
                   <span className="mt-6 block normal-case tracking-normal">Probability</span>
                 </th>

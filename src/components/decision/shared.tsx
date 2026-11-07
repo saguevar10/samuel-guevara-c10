@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Info } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import type { CriterionId } from "@/lib/decision";
@@ -18,10 +19,10 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-32 py-10 md:py-14">
-      <header className="mb-6 max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet">{eyebrow}</p>
-        <h2 id={`${id}-title`} className="font-display mt-2 text-3xl font-semibold md:text-4xl">
+    <section id={id} aria-labelledby={`${id}-title`} className="border-t py-10 first:border-t-0 md:py-12">
+      <header className="mb-7 max-w-3xl">
+        <p className="flex items-center gap-2 text-xs font-semibold uppercase text-violet"><span className="h-px w-6 bg-violet" aria-hidden />{eyebrow}</p>
+        <h2 id={`${id}-title`} className="font-display mt-2 text-2xl font-semibold md:text-3xl">
           {title}
         </h2>
         {description && <div className="mt-3 text-base leading-relaxed text-muted-foreground">{description}</div>}
@@ -32,20 +33,22 @@ export function Section({
 }
 
 export function Panel({ className, children }: { className?: string; children: ReactNode }) {
-  return <div className={cn("rounded-2xl border bg-card p-5 shadow-card md:p-6", className)}>{children}</div>;
+  return <div className={cn("min-w-0 rounded-lg border bg-card p-5 shadow-card md:p-6", className)}>{children}</div>;
 }
 
 export function InfoTip({ label, children }: { label: string; children: ReactNode }) {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <button
+        <Button
           type="button"
+          variant="ghost"
+          size="icon"
           aria-label={label}
           className="inline-flex size-5 items-center justify-center rounded-full text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <Info className="size-3.5" aria-hidden />
-        </button>
+        </Button>
       </TooltipTrigger>
       <TooltipContent className="max-w-xs text-sm leading-snug">{children}</TooltipContent>
     </Tooltip>
