@@ -31,7 +31,7 @@ export function CriteriaSection({ scenario, analysis }: { scenario: Scenario; an
         </Notice>
       ) : (
         <>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-4">
             {ALL_CRITERIA.map((id) => (
               <CriterionCard key={id} id={id} analysis={analysis} unit={unit} />
             ))}
@@ -156,8 +156,8 @@ function CriterionCard({ id, analysis, unit }: { id: CriterionId; analysis: Anal
   const r = analysis.results[id];
   const st = CRIT_STYLES[id];
   return (
-    <article className={cn("flex flex-col rounded-2xl border-t-4 border bg-card p-5 shadow-card", st.border)} aria-labelledby={`card-${id}`}>
-      <div className="flex items-center justify-between gap-2">
+    <article className={cn("min-w-0 flex flex-col rounded-lg border-t-2 border bg-card p-5 shadow-card", st.border)} aria-labelledby={`card-${id}`}>
+      <div className="flex flex-wrap items-center justify-between gap-2">
         <h3 id={`card-${id}`} className="font-display text-xl font-semibold">{info.name}</h3>
         <Badge variant="outline" className={cn("border-transparent", st.bg, st.text)}>
           {info.attitude}

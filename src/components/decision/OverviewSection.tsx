@@ -18,19 +18,21 @@ export function OverviewSection({
   actions: ScenarioActions;
 }) {
   return (
-    <section id="overview" aria-labelledby="overview-title" className="scroll-mt-32 pt-8 md:pt-12">
-      <div className="bg-hero rounded-3xl border bg-paper p-6 md:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet">Overview · Individual decision analysis</p>
-        <h1 id="overview-title" className="font-display mt-3 max-w-3xl text-4xl font-semibold leading-[1.05] md:text-6xl">
-          Decisions Under <span className="text-brand">Uncertainty</span>
+    <section id="overview" aria-labelledby="overview-title" className="pt-8 md:pt-12">
+      <div>
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase text-violet">
+          <span className="h-px w-6 bg-violet" aria-hidden /> Individual decision analysis · C10
+        </div>
+        <h1 id="overview-title" className="font-display mt-3 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
+          Santiago tapias-c10
         </h1>
-        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          Build a payoff table, compare four decision criteria, filter alternatives in stages and test how your
-          probability assumptions change the answer.
+        <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          Decisions under uncertainty. Compare the possibilities, understand the risk, and make an informed choice.
         </p>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
-          <Panel className="space-y-4">
+        <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <Panel className="min-w-0 space-y-4">
+            <h3 className="font-display text-lg font-semibold">Your scenario</h3>
             <div>
               <Label htmlFor="scenario-title">Scenario title</Label>
               <Input
@@ -65,12 +67,15 @@ export function OverviewSection({
             </div>
           </Panel>
 
-          <Panel>
-            <h3 className="font-display text-xl font-semibold">At a glance</h3>
-            <dl className="mt-3 grid grid-cols-3 gap-3 text-sm">
+          <Panel className="min-w-0 border-t-2 border-t-primary">
+            <div className="flex items-center justify-between gap-2">
+              <h3 className="font-display text-lg font-semibold">Decision overview</h3>
+              <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><span className="size-1.5 rounded-full bg-cyan" aria-hidden />Current scenario</span>
+            </div>
+            <dl className="mt-5 grid grid-cols-2 gap-3 text-sm sm:grid-cols-3">
               <Stat label="Alternatives" value={String(scenario.alternatives.length)} />
               <Stat label="States" value={String(scenario.states.length)} />
-              <div className="rounded-lg bg-muted p-3">
+              <div className="col-span-2 rounded-lg bg-muted p-3 sm:col-span-1">
                 <dt className="text-xs text-muted-foreground">Probabilities</dt>
                 <dd className={cn("mt-1 flex items-center gap-1 font-semibold", analysis.probsValid ? "text-success" : "text-destructive")}>
                   {analysis.probsValid ? <CheckCircle2 className="size-4" aria-hidden /> : <AlertTriangle className="size-4" aria-hidden />}
@@ -87,7 +92,7 @@ export function OverviewSection({
                 {ALL_CRITERIA.map((id) => {
                   const r = analysis.results[id];
                   return (
-                    <li key={id} className="flex items-start justify-between gap-3 py-2.5">
+                    <li key={id} className="flex flex-wrap items-start justify-between gap-3 py-3.5">
                       <span className="flex items-center gap-2 text-sm">
                         <span className={cn("size-2.5 rounded-full", CRIT_STYLES[id].dot)} aria-hidden />
                         <span className="font-medium">{CRITERIA[id].name}</span>
@@ -110,7 +115,7 @@ export function OverviewSection({
           </Panel>
         </div>
 
-        <Accordion type="single" collapsible className="mt-6 rounded-2xl border bg-card px-5">
+        <Accordion type="single" collapsible className="mt-6 border-y px-1">
           <AccordionItem value="method" className="border-b-0">
             <AccordionTrigger className="text-sm font-semibold">Methodology notes</AccordionTrigger>
             <AccordionContent>

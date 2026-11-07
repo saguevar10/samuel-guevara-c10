@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Samuel Guevara-C10 design system — modern academic dashboard.
- * Deep navy/charcoal surfaces, crisp blue primary, violet secondary accent.
+ * Santiago tapias-c10 design system — premium decision dashboard.
+ * Warm light canvas, navy structure, electric blue and cyan accents.
  * All colors are oklch. Register new tokens in @theme inline.
  */
 
@@ -19,8 +19,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-2xl: var(--radius);
+  --radius-3xl: var(--radius);
   --radius-4xl: calc(var(--radius) + 16px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -44,6 +44,10 @@
   --color-ring-offset-background: var(--background);
   --color-violet: var(--violet);
   --color-violet-foreground: var(--violet-foreground);
+  --color-structure: var(--structure);
+  --color-structure-foreground: var(--structure-foreground);
+  --color-structure-muted: var(--structure-muted);
+  --color-cyan: var(--cyan);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-warning: var(--warning);
@@ -69,58 +73,59 @@
 }
 
 :root {
-  color-scheme: dark;
-  --radius: 0.75rem;
-  --background: oklch(0.17 0.025 265);
-  --paper: oklch(0.2 0.03 265);
-  --foreground: oklch(0.95 0.01 260);
-  --card: oklch(0.225 0.032 265);
-  --card-foreground: oklch(0.95 0.01 260);
-  --popover: oklch(0.24 0.035 265);
-  --popover-foreground: oklch(0.95 0.01 260);
-  --primary: oklch(0.7 0.15 250);
-  --primary-foreground: oklch(0.16 0.03 265);
-  --secondary: oklch(0.28 0.035 265);
-  --secondary-foreground: oklch(0.92 0.015 260);
-  --muted: oklch(0.26 0.03 265);
-  --muted-foreground: oklch(0.74 0.025 260);
-  --accent: oklch(0.3 0.06 275);
-  --accent-foreground: oklch(0.9 0.05 285);
-  --violet: oklch(0.72 0.15 295);
-  --violet-foreground: oklch(0.16 0.03 265);
-  --success: oklch(0.76 0.14 160);
-  --success-foreground: oklch(0.16 0.03 160);
-  --warning: oklch(0.8 0.14 78);
-  --warning-foreground: oklch(0.2 0.05 60);
-  --destructive: oklch(0.7 0.17 22);
-  --destructive-foreground: oklch(0.16 0.03 22);
-  --border: oklch(0.33 0.035 265);
-  --input: oklch(0.38 0.04 265);
-  --ring: oklch(0.72 0.15 260);
-  --crit-maximax: oklch(0.8 0.14 75);
-  --crit-maximin: oklch(0.76 0.12 225);
-  --crit-regret: oklch(0.72 0.16 25);
-  --crit-emv: oklch(0.74 0.15 300);
-  --chart-1: oklch(0.7 0.15 250);
-  --chart-2: oklch(0.72 0.15 295);
-  --chart-3: oklch(0.8 0.14 75);
-  --chart-4: oklch(0.72 0.16 25);
-  --chart-5: oklch(0.76 0.14 160);
-  --sidebar: oklch(0.2 0.03 265);
-  --sidebar-foreground: oklch(0.95 0.01 260);
-  --sidebar-primary: oklch(0.7 0.15 250);
-  --sidebar-primary-foreground: oklch(0.16 0.03 265);
-  --sidebar-accent: oklch(0.28 0.035 265);
-  --sidebar-accent-foreground: oklch(0.92 0.015 260);
-  --sidebar-border: oklch(0.33 0.035 265);
-  --sidebar-ring: oklch(0.72 0.15 260);
-  --shadow-card: 0 1px 0 oklch(1 0 0 / 4%) inset, 0 18px 40px -24px oklch(0.05 0.02 265 / 80%);
-  --gradient-hero: radial-gradient(80% 90% at 100% 0%, oklch(0.55 0.17 295 / 30%), transparent 60%),
-    radial-gradient(70% 80% at 0% 100%, oklch(0.55 0.15 250 / 26%), transparent 60%),
-    linear-gradient(160deg, oklch(0.23 0.04 265), oklch(0.19 0.03 265));
-  --gradient-brand: linear-gradient(135deg, var(--primary), var(--violet));
-  --gradient-page: radial-gradient(60rem 40rem at 85% -10%, oklch(0.4 0.12 290 / 18%), transparent 70%),
-    radial-gradient(50rem 36rem at -10% 20%, oklch(0.42 0.12 250 / 14%), transparent 70%);
+  color-scheme: light;
+  --radius: 0.5rem;
+  --background: oklch(0.975 0.005 85);
+  --paper: oklch(0.955 0.008 240);
+  --foreground: oklch(0.25 0.045 260);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.53 0.215 260);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.94 0.018 245);
+  --secondary-foreground: oklch(0.32 0.06 260);
+  --muted: oklch(0.96 0.006 245);
+  --muted-foreground: oklch(0.49 0.025 255);
+  --accent: oklch(0.94 0.025 225);
+  --accent-foreground: oklch(0.35 0.09 240);
+  --violet: oklch(0.47 0.1 225);
+  --violet-foreground: var(--primary-foreground);
+  --cyan: oklch(0.78 0.125 210);
+  --structure: oklch(0.235 0.047 260);
+  --structure-foreground: oklch(0.985 0.005 240);
+  --structure-muted: oklch(0.77 0.025 245);
+  --success: oklch(0.44 0.11 165);
+  --success-foreground: var(--primary-foreground);
+  --warning: oklch(0.66 0.14 78);
+  --warning-foreground: oklch(0.33 0.07 65);
+  --destructive: oklch(0.54 0.2 25);
+  --destructive-foreground: var(--primary-foreground);
+  --border: oklch(0.89 0.012 245);
+  --input: oklch(0.83 0.02 245);
+  --ring: var(--primary);
+  --crit-maximax: oklch(0.51 0.13 65);
+  --crit-maximin: oklch(0.47 0.1 225);
+  --crit-regret: oklch(0.54 0.18 25);
+  --crit-emv: var(--primary);
+  --chart-1: var(--primary);
+  --chart-2: oklch(0.57 0.11 205);
+  --chart-3: oklch(0.57 0.14 70);
+  --chart-4: var(--crit-regret);
+  --chart-5: var(--success);
+  --sidebar: var(--structure);
+  --sidebar-foreground: var(--structure-foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--secondary);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+  --shadow-card: 0 2px 4px oklch(0.25 0.045 260 / 3%), 0 12px 28px -18px oklch(0.25 0.045 260 / 16%);
+  --gradient-brand: linear-gradient(135deg, var(--primary), var(--cyan));
+  --gradient-hero: none;
+  --gradient-page: none;
 }
 
 @utility num {
@@ -130,7 +135,7 @@
 
 @utility font-display {
   font-family: var(--font-display);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 @utility shadow-card {
@@ -172,6 +177,14 @@
 
   input[type="range"] {
     accent-color: var(--color-primary);
+  }
+
+  section { scroll-margin-top: 10rem; }
+  table tbody tr { transition: background-color 160ms ease; }
+  table tbody tr:hover { background-color: var(--muted); }
+  table th, table td { line-height: 1.5; }
+  @media (max-width: 640px) {
+    section { scroll-margin-top: 12rem; }
   }
 
   ::selection {

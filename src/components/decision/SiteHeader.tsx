@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { RotateCcw } from "lucide-react";
+import { ChartNoAxesCombined, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -44,16 +44,19 @@ export function SiteHeader({
   const label = EXAMPLE_OPTIONS.find((o) => o.id === exampleId)?.label ?? "";
 
   return (
-    <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 md:px-6">
+    <header className="sticky top-0 z-40 border-b bg-card shadow-card">
+      <div className="bg-structure text-structure-foreground">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4 md:px-8">
         <a href="#overview" className="group flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-          <span aria-hidden className="bg-brand font-display grid size-9 place-items-center rounded-lg text-sm font-bold text-primary-foreground shadow-card">
-            SG
+          <span aria-hidden className="grid size-10 shrink-0 place-items-center rounded-lg border border-cyan/40 bg-cyan/10 text-cyan">
+            <ChartNoAxesCombined className="size-6" />
           </span>
-          <span className="font-display text-lg font-semibold md:text-xl">Samuel Guevara-C10</span>
-          <span className="hidden text-sm text-muted-foreground sm:inline">Decisions Under Uncertainty</span>
+          <span>
+            <span className="font-display block text-lg font-semibold md:text-xl">Santiago tapias-c10</span>
+            <span className="block text-xs text-structure-muted">Decisions Under Uncertainty</span>
+          </span>
         </a>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 text-foreground">
           <Label htmlFor="example-select" className="sr-only">
             Load example
           </Label>
@@ -65,7 +68,7 @@ export function SiteHeader({
               setStatus(`Loaded example: ${EXAMPLE_OPTIONS.find((o) => o.id === id)?.label}`);
             }}
           >
-            <SelectTrigger id="example-select" className="h-9 w-[190px] bg-card" aria-label="Load example">
+            <SelectTrigger id="example-select" className="h-10 w-[190px] bg-card" aria-label="Load example">
               <SelectValue placeholder="Load example" />
             </SelectTrigger>
             <SelectContent>
@@ -79,7 +82,7 @@ export function SiteHeader({
           <Button
             variant="outline"
             size="sm"
-            className="h-9 bg-card"
+            className="h-10 bg-card"
             onClick={() => {
               onReset();
               setStatus(`Reset to the original “${label}” example.`);
@@ -89,16 +92,17 @@ export function SiteHeader({
           </Button>
         </div>
       </div>
-      <nav aria-label="Sections" className="mx-auto max-w-6xl overflow-x-auto px-2 md:px-4">
-        <ul className="flex min-w-max gap-1 pb-2">
+      </div>
+      <nav aria-label="Sections" className="mx-auto max-w-7xl overflow-x-auto px-2 md:px-6">
+        <ul className="flex min-w-max gap-2">
           {NAV.map((n) => (
             <li key={n.id}>
               <a
                 href={`#${n.id}`}
                 aria-current={active === n.id ? "true" : undefined}
                 className={cn(
-                  "inline-flex rounded-full px-3 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                  active === n.id ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-secondary hover:text-foreground",
+                  "inline-flex border-b-2 px-3 py-3.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  active === n.id ? "border-primary bg-primary/5 text-primary" : "border-transparent text-muted-foreground hover:bg-secondary hover:text-foreground",
                 )}
               >
                 {n.label}
